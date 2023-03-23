@@ -19,17 +19,8 @@ src="https://portfoliowebsite.zainabidin24.repl.co/static/Portfolio.jpg" >
   <h2 class="text-center"> Expertise  </h2>
     <div>
       {% for ex in exp%}
-       <div style=" margin-bottom:16px;">
-         <h4 style="color:rgb(120,120,120);margin- 
-          bottom:4px;">
-           {{ex['title']}} </h4>
-         <div>
-           <b>language:</b> {{ex['language']}}  
-         </div>
-         <div>
-           <b>Packages:</b> {{ex['Packages']}}  
-         </div>
-       </div> 
+      
+   {% include 'jobitem.html' %}
       {% endfor %}
     </div>
   <div style="text-align:center;" >
