@@ -38,7 +38,7 @@ Expertise=[
 def hello_world():
   return render_template('home.html',
                          exp=Expertise, 
-                        page_name="portfolio")
+                        page_name="Portfolio")
 @app.route("/api/expertise")
 def list_jobs():
   return jsonify(Expertise)
