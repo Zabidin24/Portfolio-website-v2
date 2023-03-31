@@ -1,4 +1,6 @@
 from flask import Flask, render_template ,jsonify
+from database import engine
+from sqlalchemy import text
 
 
 app=Flask(__name__)
@@ -28,10 +30,20 @@ Expertise=[
     'Packages':'Powerbi'
    }
 ]
+
+def load_from_database():
+  with engine.connect() as conn:
+   result=conn.execute(text("select * from exp"))
+   result_all=result.all()
+  #exp=[]
+  d1=dict(enumerate(result_all))
+  return d1
+
+
 @app.route("/")
 def hello_world():
   return render_template('home.html',
-                          exp=Expertise,
+                          exp=d1,
                           page_name='Portfolio')
 @app.route("/api/expertise")
 def list_expertise():
