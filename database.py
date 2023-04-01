@@ -10,11 +10,9 @@ engine = create_engine(db_connection_string,
         }
     })
 
-with engine.connect() as conn:
-   result=conn.execute(text("select * from exp"))
-   result_all=result.all()
-   exp1=[]
-   d1=dict(enumerate(result_all))
-   exp1.append(d1)
-   print(exp1)
 
+with engine.connect() as conn:
+  result=conn.execute(text("select * from exp"))
+  result_all=result.all()
+d1={k:"a" for k in result_all}
+print (d1,type(d1))
